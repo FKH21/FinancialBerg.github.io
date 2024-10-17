@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    background: #576c75;
+    background: #333;
     text-align: center;
 }
 header {
@@ -12,5 +12,5 @@ header {
     text-align: center;
 }
 main {
-    margin-top: 20px;
+    margin-top: 200px;
 }
