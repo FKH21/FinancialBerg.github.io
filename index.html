@@ -3,22 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crypto News</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Stock Prices</title>
 </head>
 <body>
-    <header>
-        <h1>Crypto News Aggregator</h1>
-    </header>
-    <main>
-        <section id="news-container">
-            <h2>Latest News</h2>
-            <ul id="news-list"></ul>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Crypto News. All rights reserved.</p>
-    </footer>
-    <script src="script.js"></script>
+    <h1>Stock Prices</h1>
+    <div>
+        <label for="stock-symbol">Enter Stock Symbol: </label>
+        <input type="text" id="stock-symbol" placeholder="e.g. AAPL">
+        <button onclick="getStockPrice()">Get Price</button>
+    </div>
+
+    <div id="stock-price-result">
+        <!-- Stock price will be displayed here -->
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
