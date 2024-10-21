@@ -3,53 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Coming Soon</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body, html {
-            height: 100%;
-            font-family: 'Arial', sans-serif;
-            background-color: #000000; /* Black background */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .container {
-            text-align: center;
-        }
-
-        .logo {
-            max-width: 150px; /* Adjust logo size */
-            margin-bottom: 10px;
-        }
-
-        .coming-soon {
-            color: white;
-            font-size: 2rem;
-            letter-spacing: 2px;
-        }
-
-        .bottom-text {
-            color: white;
-            font-size: 1rem;
-            letter-spacing: 2px;
-            bottom: 20px; /* Adjusts the distance from the bottom */
-            
-        }
-    </style>
+    <title>Crypto News</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <img src="LOGO.png" alt="Logo" class="logo">
-        <div class="coming-soon"> Finance For The Fellas </div>
-        <div class="bottom-text"> WEBSITE COMING SOON </div>
-    </div>
+    <header>
+        <h1>Crypto News Aggregator</h1>
+    </header>
+    <main>
+        <section id="news-container">
+            <h2>Latest News</h2>
+            <ul id="news-list"></ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Crypto News. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
