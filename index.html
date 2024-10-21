@@ -3,20 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Prices</title>
+    <title>Stock Price Aggregator</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Stock Prices</h1>
-    <div>
-        <label for="stock-symbol">Enter Stock Symbol: </label>
-        <input type="text" id="stock-symbol" placeholder="e.g. AAPL">
-        <button onclick="getStockPrice()">Get Price</button>
-    </div>
+    <div class="container">
+        <h1>Stock Price Aggregator</h1>
+        <p>Enter a stock symbol (e.g., AAPL, GOOGL, AMZN) to get the current price:</p>
 
-    <div id="stock-price-result">
-        <!-- Stock price will be displayed here -->
-    </div>
+        <div class="input-group">
+            <input type="text" id="stock-symbol" placeholder="Stock Symbol" aria-label="Stock Symbol">
+            <button onclick="getStockPrice()">Get Price</button>
+        </div>
 
+        <div id="stock-price-result" class="result">
+            <!-- Stock price will appear here -->
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Stock Price Aggregator</p>
+        </footer>
+    </div>
     <script src="app.js"></script>
 </body>
+<footer class="footer">
+    <div class="footer-left">
+        <a href="#">Advertise</a>
+        <a href="#">Developers</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Terms</a>
+    </div>
+
+    <div class="footer-right">
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-discord"></i></a>
+        <a href="#"><i class="fa fa-telegram"></i></a>
+        <a href="#"><i class="fa fa-apple"></i></a>
+        <a href="#"><i class="fa fa-android"></i></a>
+    </div>
+    
+    <div class="footer-bottom">
+        &copy; 2024 Financialberg.com
+    </div>
+</footer>
+
 </html>
