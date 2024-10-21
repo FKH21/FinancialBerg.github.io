@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-/* Full height for body to ensure footer sticks to the bottom */
+/* Full height for the body to ensure footer sticks to the bottom */
 html, body {
     height: 100%;
     margin: 0;
@@ -15,9 +15,15 @@ html, body {
 /* Dark mode background */
 body {
     background-color: #000;  /* Pure black for the page background */
+    color: #fff;  /* Make the text white */
     display: flex;
     flex-direction: column;
-    color: #fff;  /* Make the text white */
+    justify-content: space-between;  /* Ensure footer is pushed down */
+}
+
+/* Content Section (Flex Item) */
+.content {
+    flex: 1; /* This makes the content area grow to fill the space */
 }
 
 /* Footer Styling */
@@ -26,9 +32,9 @@ body {
     padding: 20px;
     color: white;
     width: 100%;
-    margin-top: auto;
     display: flex;
     justify-content: space-between;
+    flex-shrink: 0;  /* Prevents the footer from shrinking */
 }
 
 .footer-left, .footer-right {
