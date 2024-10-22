@@ -1,80 +1,72 @@
 // Your Polygon API key
 const apiKey = 'xTQoiheJiboP0JoncAulf8BfjEbyahVB';
 
-let nextUrl = null; // To store the next page URL
+// List of Magnificent 7 tickers
+const mag7Tickers = ['AAPL', 'MSFT', 'AMZN', 'GOOGL', 'META', 'TSLA', 'NVDA'];
 
-// Function to fetch all tickers with pagination support
-async function fetchAllTickers(url = `https://api.polygon.io/v3/reference/tickers?apiKey=${apiKey}`) {
+// Function to fetch stock prices for the MAG 7 companies
+async function fetchMag7StockPrices() {
     try {
-        const response = await fetch(url);
-        const data = await response.json();
-
         // Get the ticker list container
         const tickerList = document.getElementById('ticker-list');
+        tickerList.innerHTML = ''; // Clear any previous content
 
-        // Loop through the tickers and display them
-        data.results.forEach(ticker => {
-            const listItem = document.createElement('li');
-            listItem.textContent = ticker.ticker;
-            listItem.style.cursor = 'pointer';
-            listItem.style.color = 'white';
-            listItem.style.textDecoration = 'underline';
+        for (let ticker of mag7Tickers) {
+            // Fetch the stock price for each MAG 7 company
+            const response = await fetch(`https://api.polygon.io/v2/aggs/ticker/${ticker}/prev?apiKey=${apiKey}`);
+            const data = await response.json();
 
-            // Add click event listener to fetch news for the selected ticker
-            listItem.addEventListener('click', () => fetchNews(ticker.ticker));
+            if (data.results && data.results.length > 0) {
+                const stockData = data.results[0];
 
-            tickerList.appendChild(listItem);
-        });
+                // Create a table row for each company
+                const row = document.createElement('tr');
 
-        // Save the next URL if there's more data
-        nextUrl = data.next_url;
+                // Create Ticker Name cell
+                const tickerCell = document.createElement('td');
+                tickerCell.textContent = ticker;
+                row.appendChild(tickerCell);
 
-        // If there are more tickers, show the Load More button
-        const loadMoreButton = document.getElementById('load-more');
-        if (nextUrl) {
-            loadMoreButton.style.display = 'block';
-        } else {
-            loadMoreButton.style.display = 'none';
+                // Create Firm Name cell
+                const firmCell = document.createElement('td');
+                firmCell.textContent = getCompanyName(ticker);
+                row.appendChild(firmCell);
+
+                // Create Last Price cell (closing price)
+                const priceCell = document.createElement('td');
+                priceCell.textContent = `$${stockData.c.toFixed(2)}`; // Closing price
+                row.appendChild(priceCell);
+
+                // Append the row to the table
+                tickerList.appendChild(row);
+            }
         }
     } catch (error) {
-        console.error('Error fetching tickers:', error);
+        console.error('Error fetching MAG 7 stock prices:', error);
     }
 }
 
-// Function to fetch news based on the ticker
-async function fetchNews(ticker) {
-    try {
-        const response = await fetch(`https://api.polygon.io/v2/reference/news?ticker=${ticker}&apiKey=${apiKey}`);
-        const data = await response.json();
-
-        // Get the news list container
-        const newsList = document.getElementById('news-list');
-        newsList.innerHTML = ''; // Clear existing news
-
-        // Loop through the news articles and create list items
-        data.results.forEach(article => {
-            const listItem = document.createElement('li');
-            const link = document.createElement('a');
-            link.href = article.article_url;
-            link.target = '_blank'; // Open the link in a new tab
-            link.textContent = article.title;
-            link.style.color = 'white';
-            link.style.textDecoration = 'none';
-
-            listItem.appendChild(link);
-            newsList.appendChild(listItem);
-        });
-    } catch (error) {
-        console.error(`Error fetching news for ${ticker}:`, error);
+// Helper function to get the company name by ticker symbol
+function getCompanyName(ticker) {
+    switch (ticker) {
+        case 'AAPL':
+            return 'Apple';
+        case 'MSFT':
+            return 'Microsoft';
+        case 'AMZN':
+            return 'Amazon';
+        case 'GOOGL':
+            return 'Alphabet (Google)';
+        case 'META':
+            return 'Meta';
+        case 'TSLA':
+            return 'Tesla';
+        case 'NVDA':
+            return 'Nvidia';
+        default:
+            return 'Unknown';
     }
 }
 
-// Add event listener for Load More button
-document.getElementById('load-more').addEventListener('click', () => {
-    if (nextUrl) {
-        fetchAllTickers(nextUrl);
-    }
-});
-
-// Fetch initial tickers when the page loads
-fetchAllTickers();
+// Fetch the MAG 7 stock prices when the page loads
+fetchMag7StockPrices();

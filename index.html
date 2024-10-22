@@ -40,11 +40,22 @@
             </div>
             <div class="panel right-panel">
                 <h2>All Available Tickers</h2>
-                <ul class="ticker-list" id="ticker-list">
-                    <!-- Tickers will be inserted here dynamically -->
-                </ul>
+                <table class="ticker-list" id="ticker-list">
+                    <thead>
+                        <tr>
+                            <th>Ticker</th>
+                            <th>Firm Name</th>
+                            <th>Last Price</th>
+                            <th>Market Cap</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Tickers will be inserted here dynamically -->
+                    </tbody>
+                </table>
                 <button id="load-more" style="display: none;">Load More</button>
             </div>
+            
         </div>
     </main>
 

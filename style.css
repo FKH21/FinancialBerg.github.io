@@ -123,45 +123,54 @@ button {
     border: 1px solid #202328;
     box-sizing: border-box;
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.left-panel, .middle-panel, .right-panel {
-    background-color: #101114;
-    border: 1px solid #202328;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column; /* Ensure vertical alignment */
+    justify-content: flex-start;
+    align-items: flex-start; /* Align content to the top-left */
+    padding: 10px;
 }
 
 .left-panel {
     flex: 1;
+    padding: 0;
 }
 .middle-panel, .right-panel {
     flex: 4; /* Larger, equal flex value to make them the same size */
 }
 
-/**************************** Ticker List Styling ******************************/
+/**************************** Ticker Table Styling ******************************/
 .ticker-list {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 20px;
-    max-height: 300px; /* Set the maximum height for the list */
-    overflow-y: auto;  /* Enable vertical scrolling */
-}
-
-.ticker-list li {
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-    cursor: pointer;
+    width: 100%;
+    border-collapse: collapse; /* Ensure borders collapse into a clean table */
+    background-color: #101114;
     color: white;
 }
 
-.ticker-list li:hover {
-    color: #f0e68c; /* Change color on hover */
-    text-decoration: underline;
+.ticker-list tr {
+    cursor: pointer;
+    text-align: left;
+}
+
+.ticker-list th, .ticker-list td {
+    padding: 10px;
+    border: 1px solid #202328;
+}
+
+.ticker-list tr:hover {
+    background-color: #2c2f33; /* Add a hover effect on rows */
+}
+
+.ticker-list th {
+    background-color: #151718;
+    font-weight: bold;
+}
+
+.ticker-list tr td:first-child {
+    text-align: left; /* Align first column (ticker) to the left */
+}
+
+/* Ensure table scrolls when content is too long */
+.right-panel {
+    overflow-y: auto;
 }
 
 /**************************** News List Styling ******************************/
