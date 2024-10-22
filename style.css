@@ -19,19 +19,25 @@ body {
     min-height: 100vh;
 }
 
-/* Header Styling */
+/********************************************************************* Header Styling ***************************************************************/
 .header {
     background-color: black;
     color: white;
-    font-size: 13px;
-    text-align: left;
-    padding: 20px;
+    font-size: 10px;
+    padding: 10px 50px;
 }
 
 .header-content {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between; /* Space between logo/title and search bar */
+    width: 100%;
+}
+
+/* Align logo and title side by side */
+.logo-title {
+    display: flex;
+    align-items: center;
 }
 
 .logo {
@@ -39,55 +45,171 @@ body {
     margin-right: 15px;
 }
 
+/* Search Form Styling */
+.search-form {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Keep the search bar on the right side */
+}
+
+/**************** Search Bar Styling **************************/
+:root {
+    --rad: 0.3rem; /* Smaller border radius */
+    --dur: 0.3s;
+    --color-dark: #ffffff;
+    --color-light: #fff;
+    --color-brand: #202328;
+    --font-fam: 'Lato', sans-serif;
+    --height: 2rem; /* Reduced height */
+    --btn-width: 4rem; /* Smaller button width */
+    --bez: cubic-bezier(0, 0, 0.3, 1.49);
+}
+
+form {
+    position: relative;
+    width: 20rem; /* Fixed width for the search form */
+    background: var(--color-brand);
+    display: flex; /* Flexbox to keep input and button aligned */
+}
+
+input, button {
+    height: var(--height);
+    font-family: var(--font-fam);
+    border: 0;
+    color: var(--color-dark);
+    font-size: 1.2rem;
+}
+
+/* Style for the search input */
+input[type="search"] {
+    outline: none;
+    width: calc(100% - var(--btn-width)); /* Set input width relative to button width */
+    background: var(--color-light);
+    padding: 0 1.2rem;
+    border-radius: var(--rad) 0 0 var(--rad); /* Rounded only on the left side */
+    transition: all var(--dur) var(--bez);
+}
+
+/* Style for the search button */
+button {
+    width: var(--btn-width);
+    background: var(--color-brand);
+    border-radius: 0 var(--rad) var(--rad) 0; /* Rounded only on the right side */
+    cursor: pointer;
+    font-size: 1rem; /* Smaller font size for the button */
+}
+
+/**************************************************************************************** Middle Section Styling ************************************************************/
 /* Middle Section Styling */
 .middle {
     background-color: black;
     color: white;
     flex-grow: 1;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    align-items: stretch; /* Ensure panels stretch vertically */
     text-align: center;
 }
 
+.middle-content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+}
 
-/* Footer Styling */
+.panel {
+    background-color: #101114;
+    border: 1px solid #202328;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-panel, .middle-panel, .right-panel {
+    background-color: #101114;
+    border: 1px solid #202328;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-panel {
+    flex: 1;
+}
+.middle-panel, .right-panel {
+    flex: 4; /* Larger, equal flex value to make them the same size */
+}
+
+/**************************** Ticker List Styling ******************************/
+.ticker-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    max-height: 300px; /* Set the maximum height for the list */
+    overflow-y: auto;  /* Enable vertical scrolling */
+}
+
+.ticker-list li {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: white;
+}
+
+.ticker-list li:hover {
+    color: #f0e68c; /* Change color on hover */
+    text-decoration: underline;
+}
+
+/**************************** News List Styling ******************************/
+.news-list {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+    margin-top: 20px;
+}
+
+.news-list li {
+    margin-bottom: 10px; /* Add spacing between items */
+}
+
+.news-list a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.news-list a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/****************************** Footer Styling ************************************/
 .footer {
     background-color: black;
     color: rgb(255, 255, 255);
-    padding: 1px;
-    font-size: 15px;
-    display: flex;
-    justify-content: flex-end; /* Align footer content to the right */
 }
 
 .footer-content {
-    display: flex; /* Using Flexbox for the columns */
-    gap: 20px; /* Space between columns */
-    justify-content: flex-end; /* Align columns to the right */
-    flex-wrap: wrap; /* Wrap the columns if there's not enough space */
-    padding: 5px;
-    width: 100%; /* Full width for alignment to the right edge */
-    text-align: center; /* Center text inside columns */
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
 }
 
 .footer-column {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center content horizontally */
-    justify-content: center; /* Center content vertically */
-    text-align: center; /* Center text inside columns */
-    padding: 0 10px;
-    border-right: 1px solid white; /* White separator between columns */
+    justify-content: center;
+    text-align: center;
+    font-size: 20px;
 }
 
 .footer-content a {
     color: rgb(255, 255, 255);
     text-decoration: none;
-    margin-bottom: 1px;
-    
+    height: 50px;
 }
-
 
 .social-logo {
     width: 20px;

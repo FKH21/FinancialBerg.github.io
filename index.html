@@ -6,23 +6,45 @@
     <meta name="description" content="Financial Berg - Your trusted partner in financial advice and investment strategies.">
     <title>Financial Berg</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="png" href="logo.png">
+    <link rel="icon" type="image/png" href="logo.png">
 </head>
 <body>
 
     <!-- Header Section -->
     <header class="header">
         <div class="header-content">
-            <img src="images/LOGO.png" class="logo">
-            <h1>Financial Berg</h1>
+            <!-- Logo and Title aligned on the left -->
+            <div class="logo-title">
+                <img src="images/LOGO.png" class="logo" alt="Financial Berg Logo">
+                <h1>Financial Berg</h1>
+            </div>
+            <!-- Search Bar on the right -->
+            <form class="search-form" action="/search" method="GET">
+                <input type="text" placeholder="Search..." name="q" class="search-input">
+                <button type="submit" class="search-button">Search</button>
+            </form>
         </div>
     </header>
 
     <!-- Main Content Section -->
     <main class="middle">
         <div class="middle-content">
-            <h2>Welcome to Financial Berg</h2>
-            <p>Your trusted partner in financial advice and investment strategies.</p>
+            <div class="panel left-panel">
+                <p>Left Panel</p>
+            </div>
+            <div class="panel middle-panel">
+                <h2>Latest News</h2>
+                <ul class="news-list" id="news-list">
+                    <!-- News articles will be inserted here dynamically -->
+                </ul>
+            </div>
+            <div class="panel right-panel">
+                <h2>All Available Tickers</h2>
+                <ul class="ticker-list" id="ticker-list">
+                    <!-- Tickers will be inserted here dynamically -->
+                </ul>
+                <button id="load-more" style="display: none;">Load More</button>
+            </div>
         </div>
     </main>
 
@@ -31,22 +53,21 @@
         <div class="footer-content">
             <div class="footer-column">
                 <a href="https://x.com/FinancialBerg" target="_blank" aria-label="Follow us on X (formerly Twitter)">
-                    <img src="images/X.png" class="social-logo"> 
+                    <img src="images/X.png" class="social-logo">
                 </a>
             </div>
             <div class="footer-column">
-                <a href="privacy.html" aria-label="Privacy Policy">Privacy Policy</a>
-            </div>
-            
-            <div class="footer-column">
-                <a href="terms.html" aria-label="Terms of Service">Terms of Service</a>
+                <a href="privacy.html"> Privacy Policy</a>
             </div>
             <div class="footer-column">
-                &copy; 2024 FinancialBerg.com
+                <a href="terms.html"> Terms of Service </a>
+            </div>
+            <div class="footer-column">
+                <a href="https://FinancialBerg"> &copy 2024 FinancialBerg.com </a>
             </div>
         </div>
     </footer>
     
-
+    <script src="app.js"></script>
 </body>
 </html>
